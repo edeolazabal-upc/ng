@@ -1,0 +1,25 @@
+<form (ngSubmit)="agregarPaciente()" #pacienteForm="ngForm">
+<label>Nombre:</label>
+<input type="text" [(ngModel)]="nuevoPaciente.nombre" name="nombre"
+required>
+<br>
+<label>Edad:</label>
+<input type="number" [(ngModel)]="nuevoPaciente.edad" name="edad"
+required>
+<br>
+<label>Sexo:</label>
+<select [(ngModel)]="nuevoPaciente.sexo" name="sexo" required>
+<option value="">Seleccione</option>
+<option value="Masculino">Masculino</option>
+<option value="Femenino">Femenino</option>
+</select>
+<br>
+<button type="submit">Agregar Paciente</button>
+</form>
+<ul>
+<li *ngFor="let paciente of pacientes">
+{{paciente.nombre}} - {{paciente.edad}} años - {{paciente.sexo}}
+<button (click)="eliminarPaciente(paciente.id)">Eliminar</button>
+</li>
+</ul>
+<router-outlet></router-outlet>
